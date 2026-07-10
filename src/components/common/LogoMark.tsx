@@ -8,10 +8,10 @@ interface LogoMarkProps {
 }
 
 /**
- * Brand mark: three concentric arcs forming an open "C" (opening toward the
- * upper-right) with an outline accent square nested in the opening. Colors are
- * parameterized so the same mark renders dark (on the light cover) or light
- * (on the dark showroom).
+ * Brand mark: three concentric arcs (opening in the upper-right quadrant) with
+ * an outline accent square nested in that opening — the arc ends meet the
+ * square's left edge (top) and bottom edge (right). Geometry measured from the
+ * original artwork. Colors are parameterized for light/dark contexts.
  */
 export function LogoMark({
   className,
@@ -21,26 +21,26 @@ export function LogoMark({
 }: LogoMarkProps) {
   return (
     <svg
-      viewBox="0 0 400 400"
+      viewBox="0 0 188 154"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       role="img"
       aria-label={title}
     >
-      <g transform="translate(47 0)">
-        <g fill="none" stroke={stroke} strokeWidth={22} strokeLinecap="butt">
-          <path d="M 175 45 A 155 155 0 1 0 274.6 318.7" />
-          <path d="M 175 80 A 120 120 0 1 0 252.1 291.9" />
-          <path d="M 175 115 A 85 85 0 1 0 229.6 265.1" />
+      <g transform="translate(-518 -261)">
+        <g fill="none" stroke={stroke} strokeWidth={8} strokeLinecap="butt">
+          <path d="M 661.4 339.9 A 66 66 0 1 1 592.0 271.7" />
+          <path d="M 645.9 339.4 A 50.5 50.5 0 1 1 592.8 287.2" />
+          <path d="M 630.9 338.8 A 35.5 35.5 0 1 1 593.5 302.2" />
         </g>
         <rect
-          x="178"
-          y="85"
-          width="112"
-          height="112"
+          x="608"
+          y="269"
+          width="91"
+          height="91"
           fill="none"
           stroke={accent}
-          strokeWidth={13}
+          strokeWidth={5}
         />
       </g>
     </svg>

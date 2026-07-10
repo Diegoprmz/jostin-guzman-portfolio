@@ -61,7 +61,7 @@ export function CoverIntro() {
           duration: 1.8,
           ease: "power3.inOut",
         })
-        .to({}, { duration: 1.2 })
+        .to({}, { duration: 1.9 })
         .call(finish);
       safety = window.setTimeout(finish, 9000);
     }
@@ -80,17 +80,18 @@ export function CoverIntro() {
     >
       {/* ---- COVER (revealed background) ---- */}
       <div className="absolute inset-0 bg-white">
-        {/* warm floor light */}
+        {/* floor: wall reflection fading down + soft warm light near the door edge */}
         <div
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5"
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-[16%]"
           style={{
             background:
-              "linear-gradient(to top, rgba(255,238,214,0.85), rgba(255,255,255,0) 72%)",
+              "linear-gradient(to bottom, rgba(10,10,14,0.16), rgba(10,10,14,0) 48%), " +
+              "radial-gradient(130% 100% at 26% 0%, rgba(255,236,208,0.42), rgba(255,255,255,0) 62%)",
           }}
         />
 
-        {/* logo + wordmark + name */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-8 pl-[28%]">
+        {/* logo + wordmark + name (centered above the floor) */}
+        <div className="absolute inset-x-0 top-0 bottom-[16%] flex flex-col items-center justify-center gap-8 pl-[28%]">
           <div className="flex items-center gap-5">
             <LogoMark
               className="h-24 w-24 sm:h-28 sm:w-28"
@@ -109,8 +110,8 @@ export function CoverIntro() {
           </h1>
         </div>
 
-        {/* left franja (part of the cover) */}
-        <div className="absolute inset-y-0 left-0 w-[28%] bg-[#0b0b0d]">
+        {/* left franja (part of the cover) — trimmed to sit on the floor */}
+        <div className="absolute top-0 bottom-[16%] left-0 w-[28%] bg-[#0b0b0d]">
           <div className="absolute top-0 right-8 flex h-full flex-col items-center justify-center gap-5 text-white/75">
             {SIDE_WORDS.map((w) => (
               <span
@@ -132,12 +133,15 @@ export function CoverIntro() {
         </div>
       </div>
 
-      {/* ---- DOOR (sweeps left) ---- */}
-      <div ref={shutterRef} className="absolute inset-0 bg-[#0a0a0a]">
+      {/* ---- DOOR (sweeps left) — trimmed to the wall height, floor stays lit ---- */}
+      <div
+        ref={shutterRef}
+        className="absolute top-0 bottom-[16%] left-0 right-0 bg-[#0a0a0a]"
+      >
         {/* light bleeding through the opening edge */}
         <div
-          className="absolute inset-y-0 right-0 w-[3px] bg-white/90"
-          style={{ boxShadow: "0 0 90px 26px rgba(255,244,224,0.6)" }}
+          className="absolute inset-y-0 right-0 w-[2px] bg-white/85"
+          style={{ boxShadow: "0 0 60px 14px rgba(255,244,224,0.45)" }}
         />
       </div>
 
