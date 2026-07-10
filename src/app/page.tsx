@@ -1,5 +1,5 @@
-import { LoadingScene } from "@/components/LoadingScreen/LoadingScene";
+import { CoverIntro } from "@/components/LoadingScreen/CoverIntro";
 
 export default function Home() {
-  return <LoadingScene />;
+  return <CoverIntro />;
 }
