@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import gsap from "gsap";
 import Image from "next/image";
+import { FloorWater } from "./FloorWater";
 
 const SIDE_WORDS = [
   "DESIGN",
@@ -80,14 +81,8 @@ export function CoverIntro() {
     >
       {/* ---- COVER (revealed background) ---- */}
       <div className="absolute inset-0 bg-white">
-        {/* soft warm light spilling from the door base — smooth, no hard edges */}
-        <div
-          className="pointer-events-none absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(55% 42% at 25% 100%, rgba(255,236,206,0.55), rgba(255,255,255,0) 70%)",
-          }}
-        />
+        {/* liquid-glass water floor reflecting the warm door light */}
+        <FloorWater className="pointer-events-none absolute inset-x-0 bottom-0 block h-[18%] w-full" />
 
         {/* logo + wordmark + name (centered above the floor) */}
         <div className="absolute inset-x-0 top-0 bottom-[16%] flex flex-col items-center justify-center gap-8 pl-[28%]">
