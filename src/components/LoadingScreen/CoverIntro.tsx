@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import gsap from "gsap";
 import Image from "next/image";
-import { FloorWater } from "./FloorWater";
+import { FluidWater } from "./FluidWater";
 
 const SIDE_WORDS = [
   "DESIGN",
@@ -81,8 +81,8 @@ export function CoverIntro() {
     >
       {/* ---- COVER (revealed background) ---- */}
       <div className="absolute inset-0 bg-white">
-        {/* liquid-glass water floor reflecting the warm door light */}
-        <FloorWater className="pointer-events-none absolute inset-x-0 bottom-0 block h-[18%] w-full" />
+        {/* interactive liquid-glass fluid floor (stir it with the cursor) */}
+        <FluidWater className="pointer-events-none absolute inset-x-0 bottom-0 block h-[22%] w-full" />
 
         {/* logo + wordmark + name (centered above the floor) */}
         <div className="absolute inset-x-0 top-0 bottom-[16%] flex flex-col items-center justify-center gap-8 pl-[28%]">
