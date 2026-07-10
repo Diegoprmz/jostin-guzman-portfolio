@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Jostin Guzmán — Portafolio 3D
 
-## Getting Started
+Portafolio web inmersivo para el arquitecto **Jostin Guzmán**. Una experiencia showroom con WebGL, shaders personalizados, parallax de profundidad, iluminación dinámica y puntos de interés interactivos tipo *liquid glass*.
 
-First, run the development server:
+## ✨ Características
+
+- **Pantalla de carga cinemática** — Una puerta se abre dejando pasar luz volumétrica que ilumina el logo
+- **Menú showroom** — Retrato profesional B&N con efecto parallax de estudio
+- **Salas de proyecto** — Renders 2D con capas de profundidad emulando 3D
+- **Points of Interest (POI)** — Gotas *liquid glass* estilo Apple marcan zonas interactivas
+- **Mood boards** — Referencias de materiales por proyecto
+- **Etiquetas 3D con parallax** — Anotaciones flotantes que responden al cursor
+
+## 🛠️ Stack
+
+- **Framework**: Next.js 15 (App Router) + React 19
+- **Lenguaje**: TypeScript (strict)
+- **3D/WebGL**: Three.js + shaders GLSL personalizados
+- **Animaciones**: GSAP + Framer Motion
+- **Estilos**: Tailwind CSS v4
+- **Deploy**: Vercel
+
+## 🚀 Getting Started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📦 Comandos
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `pnpm dev` — Servidor de desarrollo
+- `pnpm build` — Build de producción
+- `pnpm start` — Servidor de producción
+- `pnpm lint` — Linter
 
-## Learn More
+## 📁 Estructura
 
-To learn more about Next.js, take a look at the following resources:
+Ver `CLAUDE.md` para la arquitectura completa y `jostin-portfolio-blueprint.md` para el blueprint detallado del proyecto.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📄 Proyectos (Fase 1)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. **Complejo Mercado Villa de GPE** — Proyecto de Titulación, Edo. de México, 2025
+2. **Comedor Comunitario** — 1º lugar Expo Universitaria, Oaxaca, 2021
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Diseñado y desarrollado con ❤️ para Jostin Guzmán.
