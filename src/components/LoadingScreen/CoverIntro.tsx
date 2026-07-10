@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import gsap from "gsap";
-import { LogoMark } from "@/components/common/LogoMark";
+import Image from "next/image";
 
 const SIDE_WORDS = [
   "DESIGN",
@@ -80,23 +80,25 @@ export function CoverIntro() {
     >
       {/* ---- COVER (revealed background) ---- */}
       <div className="absolute inset-0 bg-white">
-        {/* floor: wall reflection fading down + soft warm light near the door edge */}
+        {/* soft warm light spilling from the door base — smooth, no hard edges */}
         <div
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-[16%]"
+          className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(10,10,14,0.16), rgba(10,10,14,0) 48%), " +
-              "radial-gradient(130% 100% at 26% 0%, rgba(255,236,208,0.42), rgba(255,255,255,0) 62%)",
+              "radial-gradient(55% 42% at 25% 100%, rgba(255,236,206,0.55), rgba(255,255,255,0) 70%)",
           }}
         />
 
         {/* logo + wordmark + name (centered above the floor) */}
         <div className="absolute inset-x-0 top-0 bottom-[16%] flex flex-col items-center justify-center gap-8 pl-[28%]">
           <div className="flex items-center gap-5">
-            <LogoMark
-              className="h-24 w-24 sm:h-28 sm:w-28"
-              stroke="#2b2b2b"
-              accent="#1e50c8"
+            <Image
+              src="/images/ui/logo-cover.png"
+              alt="Logo Jostin Guzmán"
+              width={282}
+              height={282}
+              priority
+              className="h-24 w-auto sm:h-28"
             />
             <div className="flex flex-col leading-tight text-neutral-500">
               <span className="text-2xl font-light sm:text-3xl">Portafolio</span>
@@ -112,24 +114,31 @@ export function CoverIntro() {
 
         {/* left franja (part of the cover) — trimmed to sit on the floor */}
         <div className="absolute top-0 bottom-[16%] left-0 w-[28%] bg-[#0b0b0d]">
-          <div className="absolute top-0 right-8 flex h-full flex-col items-center justify-center gap-5 text-white/75">
+          <div className="absolute inset-y-0 right-8 flex flex-col items-center justify-center gap-2 text-white/70">
             {SIDE_WORDS.map((w) => (
               <span
                 key={w}
-                className="font-mono text-[10px] tracking-[0.35em]"
+                className="font-mono text-[9px] tracking-[0.25em]"
                 style={{ writingMode: "vertical-rl", textOrientation: "upright" }}
               >
                 {w}
               </span>
             ))}
+            <span
+              className="mt-1 font-mono text-[8px] tracking-[0.2em] text-white/45"
+              style={{ writingMode: "vertical-rl" }}
+            >
+              2019 — 2026
+            </span>
           </div>
-          <div className="absolute top-1/2 right-5 h-1/2 w-px -translate-y-1/2 bg-[#1e50c8]" />
-          <span
-            className="absolute right-5 bottom-10 font-mono text-[9px] tracking-[0.3em] text-white/50"
-            style={{ writingMode: "vertical-rl" }}
-          >
-            2019 — 2026
-          </span>
+          <div className="absolute top-1/2 right-5 h-2/5 w-px -translate-y-1/2 bg-[#1e50c8]" />
+          {/* warm light at the wall base softens the bottom edge */}
+          <div
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-16"
+            style={{
+              background: "linear-gradient(to top, rgba(255,232,200,0.4), transparent)",
+            }}
+          />
         </div>
       </div>
 
