@@ -1,0 +1,122 @@
+{
+  "projects": [
+    {
+      "id": "villa-gpe",
+      "slug": "villa-gpe",
+      "title": "Complejo Mercado Villa de GPE",
+      "year": 2025,
+      "location": "Edo. de México, México",
+      "category": "Proyecto de Titulación",
+      "description": "Resignificar el mercado público como espacio de encuentro, comercio y comunidad.",
+      "longDescription": "Un complejo de mercado de uso mixto que resignifica el concepto de mercado público tradicional. El proyecto integra comercio, gastronomía y espacio público en un volumen permeable que privilegia la ventilación e iluminación natural, apostando por materiales locales y estrategias pasivas de climatización.",
+      "area": "15,000 m²",
+      "team": ["Jostin Guzmán"],
+      "hero": {
+        "image": "/images/projects/villa-gpe/thumbnails/hero.png",
+        "parallaxLayers": {
+          "far": "/images/projects/villa-gpe/bg-layer-0.png",
+          "mid": "/images/projects/villa-gpe/bg-layer-1.png",
+          "close": "/images/projects/villa-gpe/bg-layer-2.png"
+        },
+        "moodBoard": "/images/projects/villa-gpe/poi-mood-board.jpg"
+      },
+      "poi": [
+        {
+          "id": "material-concreto",
+          "title": "Fachadas de concreto",
+          "description": "Concreto texturizado que genera juego de sombras a lo largo del día.",
+          "position": { "x": 30, "y": 42 },
+          "type": "material",
+          "details": {
+            "heading": "Sistema estructural de concreto",
+            "body": "Concreto de agregado local con acabado escobillado que aporta durabilidad y continuidad estética. La textura responde al asoleamiento, proyectando sombras que cambian la lectura de la fachada durante el día."
+          },
+          "moodBoardItems": ["concreto", "textura", "material-local"],
+          "radius": 44,
+          "glowIntensity": 1.2
+        },
+        {
+          "id": "concepto-tragaluz",
+          "title": "Estrategia de tragaluces",
+          "description": "Ventilación natural que reduce el consumo energético.",
+          "position": { "x": 68, "y": 26 },
+          "type": "concept",
+          "details": {
+            "heading": "Control climático pasivo",
+            "body": "El atrio central con tragaluces operables asegura flujo de aire e iluminación natural, disminuyendo la dependencia de sistemas mecánicos y creando un microclima confortable en las zonas de comercio."
+          },
+          "moodBoardItems": ["luz-natural", "ventilacion"],
+          "radius": 50,
+          "glowIntensity": 1.5
+        },
+        {
+          "id": "detalle-plaza",
+          "title": "Plaza de acceso",
+          "description": "Umbral público que conecta calle y mercado.",
+          "position": { "x": 48, "y": 70 },
+          "type": "detail",
+          "details": {
+            "heading": "Transición calle–mercado",
+            "body": "La plaza de acceso funciona como umbral urbano: un espacio de estancia sombreado que absorbe el flujo peatonal y lo conduce hacia el interior, activando el borde comercial de la manzana."
+          },
+          "radius": 40,
+          "glowIntensity": 1.0
+        }
+      ],
+      "nextProject": "comedor"
+    },
+    {
+      "id": "comedor",
+      "slug": "comedor",
+      "title": "Comedor Comunitario",
+      "year": 2021,
+      "location": "Oaxaca, México",
+      "category": "Expo Universitaria",
+      "award": "1º lugar",
+      "description": "Espacio comunitario de convivencia que celebra la cocina y la cultura local.",
+      "longDescription": "Un comedor comunitario flexible diseñado para albergar eventos culturales y la vida cotidiana del barrio. La propuesta prioriza la madera local y una cubierta ligera que filtra la luz, generando un ambiente cálido que invita a la reunión y al intercambio.",
+      "area": "2,500 m²",
+      "team": ["Jostin Guzmán"],
+      "hero": {
+        "image": "/images/projects/comedor/thumbnails/hero.png",
+        "parallaxLayers": {
+          "far": "/images/projects/comedor/bg-layer-0.png",
+          "mid": "/images/projects/comedor/bg-layer-1.png",
+          "close": "/images/projects/comedor/bg-layer-2.png"
+        },
+        "moodBoard": "/images/projects/comedor/poi-mood-board.jpg"
+      },
+      "poi": [
+        {
+          "id": "estructura-celosia",
+          "title": "Celosía de madera",
+          "description": "Elemento estructural y estético que tamiza la luz directa.",
+          "position": { "x": 46, "y": 36 },
+          "type": "structural",
+          "details": {
+            "heading": "Diseño en madera sostenible",
+            "body": "Madera de origen local dispuesta en una celosía paramétrica que reduce el asoleamiento directo y proyecta patrones de luz sobre el comedor, integrando estructura y atmósfera en un solo gesto."
+          },
+          "moodBoardItems": ["madera", "celosia", "luz-filtrada"],
+          "radius": 46,
+          "glowIntensity": 1.3
+        },
+        {
+          "id": "concepto-comunidad",
+          "title": "Mesa comunitaria",
+          "description": "Corazón social del proyecto.",
+          "position": { "x": 62, "y": 58 },
+          "type": "concept",
+          "details": {
+            "heading": "Espacio de convivencia",
+            "body": "La gran mesa comunitaria organiza el espacio y define su vocación: un lugar de encuentro donde la comida articula la vida del barrio. El mobiliario flexible permite reconfigurar la sala para talleres y eventos."
+          },
+          "moodBoardItems": ["comunidad", "mobiliario"],
+          "radius": 42,
+          "glowIntensity": 1.1
+        }
+      ],
+      "prevProject": "villa-gpe"
+    }
+  ]
+}
