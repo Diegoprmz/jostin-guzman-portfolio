@@ -8,7 +8,7 @@ export default function Home() {
   const projects = getProjectSummaries();
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-background">
+    <main className="relative min-h-screen overflow-hidden">
       <ParallaxBackdrop />
 
       <header className="relative z-10 flex items-center justify-between px-6 py-6 sm:px-10">

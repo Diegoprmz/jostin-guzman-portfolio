@@ -12,16 +12,19 @@ const GLASS: CSSProperties = {
   border: "1px solid rgba(255,255,255,0.08)",
 };
 
-// trailing bubbles: progressively smaller & fainter, like a cell dividing
-const BUBBLE_SCALE = [0.6, 0.42, 0.3];
-const BUBBLE_ALPHA = [0.55, 0.38, 0.24];
+// successive drops shrink — like a cell dividing into smaller ones
+const SPAWN_SIZE = [0.62, 0.46, 0.33];
+const LIFE_MS = 1000; // bubbles linger, then fade out over 1s
+const SPAWN_MS = 220; // throttle so only a few appear
+const SPEED_MIN = 6; // only shed bubbles when moving with intent
+
+type Bubble = { active: boolean; x: number; y: number; born: number; scale: number };
 
 /**
- * The cursor: a small liquid-glass lens replaces the native pointer. It
- * distorts what's behind (backdrop-filter), deforms with motion (stretch along
- * the drag, squash across), and — when moved fast — sheds 2–3 ever-smaller
- * glass bubbles as a trail. Disabled on touch / reduced-motion (native cursor
- * stays).
+ * The cursor: a small liquid-glass lens replaces the native pointer, distorts
+ * what's behind it, and deforms with motion. Moving fast sheds up to 3 glass
+ * bubbles (each smaller than the last) that stay put and fade out over ~1s.
+ * Disabled on touch / reduced-motion.
  */
 export function CursorGlass() {
   const mainRef = useRef<HTMLDivElement>(null);
@@ -30,6 +33,7 @@ export function CursorGlass() {
   const b2 = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const bubbleRefs = [b0, b1, b2];
     const coarse = window.matchMedia("(pointer: coarse)").matches;
     const reduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
@@ -40,13 +44,21 @@ export function CursorGlass() {
     const prevCursor = root.style.cursor;
     root.style.cursor = "none"; // the glass ball is the cursor now
 
-    const bubbleRefs = [b0, b1, b2];
     let tx = window.innerWidth / 2;
     let ty = window.innerHeight / 2;
-    const px = [tx, tx, tx, tx];
-    const py = [ty, ty, ty, ty];
+    let cx = tx;
+    let cy = ty;
     let shown = false;
     let raf = 0;
+
+    const pool: Bubble[] = [
+      { active: false, x: 0, y: 0, born: 0, scale: 0 },
+      { active: false, x: 0, y: 0, born: 0, scale: 0 },
+      { active: false, x: 0, y: 0, born: 0, scale: 0 },
+    ];
+    let slot = 0;
+    let spawnCount = 0;
+    let lastSpawn = 0;
 
     const onMove = (e: PointerEvent) => {
       tx = e.clientX;
@@ -55,32 +67,55 @@ export function CursorGlass() {
     };
 
     const loop = () => {
-      const prevX = px[0];
-      const prevY = py[0];
-      px[0] += (tx - px[0]) * 0.32;
-      py[0] += (ty - py[0]) * 0.32;
-      for (let i = 1; i < 4; i++) {
-        px[i] += (px[i - 1] - px[i]) * 0.3;
-        py[i] += (py[i - 1] - py[i]) * 0.3;
-      }
+      const now = performance.now();
+      const prevX = cx;
+      const prevY = cy;
+      cx += (tx - cx) * 0.32;
+      cy += (ty - cy) * 0.32;
 
-      const vx = px[0] - prevX;
-      const vy = py[0] - prevY;
+      const vx = cx - prevX;
+      const vy = cy - prevY;
       const speed = Math.hypot(vx, vy);
       const angle = (Math.atan2(vy, vx) * 180) / Math.PI;
-      const stretch = Math.min(speed * 0.04, 0.75);
-      const trail = Math.min(Math.max((speed - 5) * 0.12, 0), 1);
+      const stretch = Math.min(speed * 0.045, 0.8);
 
       if (mainRef.current) {
-        mainRef.current.style.transform = `translate(${px[0]}px, ${py[0]}px) translate(-50%,-50%) rotate(${angle}deg) scale(${1 + stretch}, ${1 - stretch * 0.55})`;
+        mainRef.current.style.transform = `translate(${cx}px, ${cy}px) translate(-50%,-50%) rotate(${angle}deg) scale(${1 + stretch}, ${1 - stretch * 0.55})`;
         mainRef.current.style.opacity = shown ? "1" : "0";
       }
-      for (let i = 0; i < 3; i++) {
+
+      // shed a bubble when moving fast (throttled)
+      if (shown && speed > SPEED_MIN && now - lastSpawn > SPAWN_MS) {
+        lastSpawn = now;
+        const b = pool[slot];
+        b.active = true;
+        b.x = cx;
+        b.y = cy;
+        b.born = now;
+        b.scale = SPAWN_SIZE[spawnCount % SPAWN_SIZE.length];
+        slot = (slot + 1) % pool.length;
+        spawnCount++;
+      }
+
+      // dropped bubbles stay in place and fade over LIFE_MS
+      for (let i = 0; i < pool.length; i++) {
+        const b = pool[i];
         const el = bubbleRefs[i].current;
         if (!el) continue;
-        el.style.transform = `translate(${px[i + 1]}px, ${py[i + 1]}px) translate(-50%,-50%) rotate(${angle}deg) scale(${BUBBLE_SCALE[i] * (1 + stretch * 0.4)})`;
-        el.style.opacity = shown ? String(trail * BUBBLE_ALPHA[i]) : "0";
+        if (!b.active) {
+          el.style.opacity = "0";
+          continue;
+        }
+        const age = (now - b.born) / LIFE_MS;
+        if (age >= 1) {
+          b.active = false;
+          el.style.opacity = "0";
+          continue;
+        }
+        el.style.transform = `translate(${b.x}px, ${b.y}px) translate(-50%,-50%) scale(${b.scale * (1 - age * 0.35)})`;
+        el.style.opacity = String((1 - age) * 0.5);
       }
+
       raf = requestAnimationFrame(loop);
     };
 
@@ -93,11 +128,13 @@ export function CursorGlass() {
     };
   }, []);
 
+  const bubbleCls =
+    "pointer-events-none fixed left-0 top-0 z-[59] h-10 w-10 rounded-full opacity-0 will-change-transform";
   return (
     <>
-      <div ref={b2} aria-hidden className="pointer-events-none fixed left-0 top-0 z-[59] h-10 w-10 rounded-full opacity-0 will-change-transform" style={GLASS} />
-      <div ref={b1} aria-hidden className="pointer-events-none fixed left-0 top-0 z-[59] h-10 w-10 rounded-full opacity-0 will-change-transform" style={GLASS} />
-      <div ref={b0} aria-hidden className="pointer-events-none fixed left-0 top-0 z-[59] h-10 w-10 rounded-full opacity-0 will-change-transform" style={GLASS} />
+      <div ref={b0} aria-hidden className={bubbleCls} style={GLASS} />
+      <div ref={b1} aria-hidden className={bubbleCls} style={GLASS} />
+      <div ref={b2} aria-hidden className={bubbleCls} style={GLASS} />
       <div
         ref={mainRef}
         aria-hidden

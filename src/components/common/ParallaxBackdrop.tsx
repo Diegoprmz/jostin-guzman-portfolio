@@ -41,8 +41,8 @@ export function ParallaxBackdrop() {
     const loop = () => {
       cx += (tx - cx) * 0.05;
       cy += (ty - cy) * 0.05;
-      set(photoRef.current, 14);
-      set(midRef.current, 34);
+      set(photoRef.current, 24);
+      set(midRef.current, 52);
       raf = requestAnimationFrame(loop);
     };
 
@@ -57,7 +57,7 @@ export function ParallaxBackdrop() {
   return (
     <div
       aria-hidden
-      className="pointer-events-none absolute inset-0 -z-10 overflow-hidden bg-background"
+      className="pointer-events-none absolute inset-0 z-0 overflow-hidden bg-background"
     >
       {/* deep: dimmed studio photo */}
       <div ref={photoRef} className="absolute inset-0 will-change-transform">
