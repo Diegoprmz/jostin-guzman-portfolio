@@ -86,7 +86,14 @@ export function IntroCurtain() {
 
       {/* branding on frosted glass */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center px-6">
-        <div className="glass relative flex flex-col items-center gap-6 rounded-card px-10 py-9 shadow-elevated sm:px-14 sm:py-11">
+        <div
+          className="relative flex flex-col items-center gap-6 rounded-card border border-white/10 px-10 py-9 shadow-elevated sm:px-14 sm:py-11"
+          style={{
+            backdropFilter: "blur(32px) saturate(1.1)",
+            WebkitBackdropFilter: "blur(32px) saturate(1.1)",
+            background: "rgba(255,255,255,0.045)",
+          }}
+        >
           <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent" />
           <div className="flex items-center gap-4">
             <LogoMark
