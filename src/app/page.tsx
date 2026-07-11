@@ -1,6 +1,6 @@
 import { getProjectSummaries } from "@/lib/projects";
 import { LogoMark } from "@/components/common/LogoMark";
-import { SceneBackdrop } from "@/components/common/SceneBackdrop";
+import { ParallaxBackdrop } from "@/components/common/ParallaxBackdrop";
 import { HeroPortrait } from "@/components/Menu/HeroPortrait";
 import { ProjectCard } from "@/components/Menu/ProjectCard";
 
@@ -9,7 +9,7 @@ export default function Home() {
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-background">
-      <SceneBackdrop />
+      <ParallaxBackdrop />
 
       <header className="relative z-10 flex items-center justify-between px-6 py-6 sm:px-10">
         <div className="flex items-center gap-3">
