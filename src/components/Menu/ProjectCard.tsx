@@ -3,9 +3,9 @@ import Image from "next/image";
 import type { ProjectSummary } from "@/types/project";
 
 /**
- * Full-width horizontal card for a project in the showroom menu. Grayscale
- * thumbnail warms to color on hover (an architecture-portfolio staple), links
- * into the project's room.
+ * Dark-neomorphic card: soft dual shadows (deep bottom-right + faint top-left
+ * highlight) make it read as raised off the textured backdrop; a top sheen
+ * "glint" separates it further. Grayscale thumbnail warms to color on hover.
  */
 export function ProjectCard({
   project,
@@ -21,13 +21,19 @@ export function ProjectCard({
   return (
     <Link
       href={`/project/${project.slug}`}
-      className="group relative flex items-center gap-5 overflow-hidden rounded-card border border-white/5 bg-surface/40 p-4 transition-all duration-500 ease-luxury hover:border-accent/40 hover:bg-surface"
+      className="group relative flex items-center gap-5 overflow-hidden rounded-card bg-surface/70 p-4 shadow-[6px_6px_20px_rgba(0,0,0,0.55),-5px_-5px_14px_rgba(255,255,255,0.02)] transition-all duration-500 ease-luxury hover:-translate-y-0.5 hover:bg-surface hover:shadow-[0_12px_34px_rgba(0,0,0,0.6),0_0_30px_rgba(212,175,55,0.12)]"
     >
+      {/* top sheen glint */}
+      <span
+        aria-hidden
+        className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"
+      />
+
       <span className="font-mono text-xs text-accent/60 tabular-nums">
         {String(index).padStart(2, "0")}
       </span>
 
-      <div className="relative h-20 w-28 shrink-0 overflow-hidden rounded-btn">
+      <div className="relative h-20 w-28 shrink-0 overflow-hidden rounded-btn shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)]">
         <Image
           src={project.image}
           alt={project.title}

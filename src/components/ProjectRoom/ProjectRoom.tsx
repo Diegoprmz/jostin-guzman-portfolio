@@ -39,7 +39,7 @@ export function ProjectRoom({ project }: { project: Project }) {
       {/* header */}
       <header className="pointer-events-none absolute inset-x-0 top-0 z-20 flex items-center justify-between p-6 sm:p-8">
         <Link
-          href="/menu"
+          href="/"
           className="pointer-events-auto flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-muted transition-colors hover:text-foreground"
         >
           <span aria-hidden>←</span> Showroom

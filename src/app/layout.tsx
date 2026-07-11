@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { CursorGlass } from "@/components/common/CursorGlass";
+import { IntroCurtain } from "@/components/LoadingScreen/IntroCurtain";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -34,6 +36,8 @@ export default function RootLayout({
     >
       <body className="min-h-full bg-background font-sans text-foreground">
         {children}
+        <CursorGlass />
+        <IntroCurtain />
       </body>
     </html>
   );
