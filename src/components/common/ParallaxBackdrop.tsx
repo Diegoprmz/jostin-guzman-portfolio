@@ -66,10 +66,10 @@ export function ParallaxBackdrop() {
           alt=""
           fill
           sizes="100vw"
-          className="object-cover opacity-40"
+          className="object-cover opacity-50"
           priority
         />
-        <div className="absolute inset-0 bg-background/60" />
+        <div className="absolute inset-0 bg-background/55" />
       </div>
 
       {/* mid: soft depth blobs + noise */}
