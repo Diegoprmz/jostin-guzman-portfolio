@@ -2,24 +2,21 @@
 
 import Image from "next/image";
 import { useEffect, useRef, type ReactNode } from "react";
-import type { ParallaxLayers } from "@/types/project";
 
 /**
- * 2D depth parallax: three render layers (far/mid/close) translate at
- * increasing strength with the mouse, so the scene reads as having depth.
- * The POI overlay tracks the closest layer so droplets stay pinned to the
- * scene. GPU transforms + rAF lerp = smooth 60fps; reduced-motion sits still.
+ * Single-render scene with a subtle camera parallax: the render drifts (and is
+ * slightly over-scaled to hide edges) with the mouse, and the POI overlay
+ * tracks it so droplets stay pinned to the image. GPU transforms + rAF lerp;
+ * reduced-motion sits still.
  */
 export function ParallaxScene({
-  layers,
+  scene,
   children,
 }: {
-  layers: ParallaxLayers;
+  scene: string;
   children?: ReactNode;
 }) {
-  const farRef = useRef<HTMLDivElement>(null);
-  const midRef = useRef<HTMLDivElement>(null);
-  const nearRef = useRef<HTMLDivElement>(null);
+  const sceneRef = useRef<HTMLDivElement>(null);
   const poiRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -38,17 +35,14 @@ export function ParallaxScene({
       tx = e.clientX / window.innerWidth - 0.5;
       ty = e.clientY / window.innerHeight - 0.5;
     };
-    const layer = (el: HTMLDivElement | null, s: number) => {
-      if (el) el.style.transform = `translate(${cx * -s}px, ${cy * -s}px) scale(1.14)`;
-    };
     const loop = () => {
       cx += (tx - cx) * 0.06;
       cy += (ty - cy) * 0.06;
-      layer(farRef.current, 10);
-      layer(midRef.current, 26);
-      layer(nearRef.current, 46);
+      if (sceneRef.current) {
+        sceneRef.current.style.transform = `translate(${cx * -26}px, ${cy * -26}px) scale(1.12)`;
+      }
       if (poiRef.current) {
-        poiRef.current.style.transform = `translate(${cx * -46}px, ${cy * -46}px)`;
+        poiRef.current.style.transform = `translate(${cx * -26}px, ${cy * -26}px)`;
       }
       raf = requestAnimationFrame(loop);
     };
@@ -61,17 +55,17 @@ export function ParallaxScene({
     };
   }, []);
 
-  const layerCls = "absolute inset-0 will-change-transform";
   return (
     <div className="absolute inset-0 overflow-hidden">
-      <div ref={farRef} className={layerCls}>
-        <Image src={layers.far} alt="" fill sizes="100vw" className="object-cover" priority />
-      </div>
-      <div ref={midRef} className={layerCls}>
-        <Image src={layers.mid} alt="" fill sizes="100vw" className="object-cover" />
-      </div>
-      <div ref={nearRef} className={layerCls}>
-        <Image src={layers.close} alt="" fill sizes="100vw" className="object-cover" />
+      <div ref={sceneRef} className="absolute inset-0 will-change-transform">
+        <Image
+          src={scene}
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover"
+          priority
+        />
       </div>
       <div ref={poiRef} className="absolute inset-0 will-change-transform">
         {children}

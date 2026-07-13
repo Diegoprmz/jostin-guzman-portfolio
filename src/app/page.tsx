@@ -14,7 +14,7 @@ export default function Home() {
 
       <header className="relative z-10 flex items-center justify-between px-6 py-6 sm:px-10">
         <div className="flex items-center gap-3">
-          <LogoMark className="h-8 w-8" stroke="#f0ece2" accent="#3b6fe0" />
+          <LogoMark className="h-8 w-8" />
           <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-muted">
             Jostin Guzmán · Arquitectura
           </span>

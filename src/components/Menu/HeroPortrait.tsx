@@ -63,11 +63,11 @@ export function HeroPortrait() {
         className="relative h-full w-full overflow-hidden rounded-card border border-white/10 shadow-elevated will-change-transform"
       >
         <Image
-          src="/images/hero/jostin-bw.png"
-          alt="Jostin Guzmán"
+          src="/images/hero/feature.jpg"
+          alt="Proyecto destacado — Mercado Villa de Guadalupe"
           fill
           sizes="(max-width: 1024px) 90vw, 420px"
-          className="object-cover grayscale"
+          className="object-cover"
           priority
         />
         <div

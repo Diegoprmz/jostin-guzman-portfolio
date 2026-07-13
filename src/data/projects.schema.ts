@@ -48,11 +48,7 @@ export const projectSchema = z.object({
   team: z.array(z.string()).optional(),
   hero: z.object({
     image: z.string(),
-    parallaxLayers: z.object({
-      far: z.string(),
-      mid: z.string(),
-      close: z.string(),
-    }),
+    scene: z.string(),
     moodBoard: z.string(),
   }),
   poi: z.array(poiSchema),

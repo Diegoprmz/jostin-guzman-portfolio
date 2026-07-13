@@ -96,11 +96,7 @@ export function IntroCurtain() {
         >
           <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent" />
           <div className="flex items-center gap-4">
-            <LogoMark
-              className="h-16 w-16 sm:h-20 sm:w-20"
-              stroke="#f0ece2"
-              accent="#3b6fe0"
-            />
+            <LogoMark className="h-16 w-16 sm:h-20 sm:w-20" />
             <div className="flex flex-col leading-tight text-muted">
               <span className="text-xl font-light sm:text-2xl">Portafolio</span>
               <span className="text-xl font-light sm:text-2xl">Arquitectura</span>

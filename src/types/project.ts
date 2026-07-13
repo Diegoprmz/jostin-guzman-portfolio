@@ -1,17 +1,11 @@
 import type { PointOfInterest } from "@/types/poi";
 
-/** Depth planes for the 2D parallax scene. */
-export interface ParallaxLayers {
-  far: string;
-  mid: string;
-  close: string;
-}
-
 export interface ProjectHero {
   /** Thumbnail used on the menu card. */
   image: string;
-  parallaxLayers: ParallaxLayers;
-  /** Material mood-board image. */
+  /** The room render shown behind the POIs (single flat render). */
+  scene: string;
+  /** Material / plan mood-board image shown in the drawer. */
   moodBoard: string;
 }
 

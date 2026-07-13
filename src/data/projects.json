@@ -8,56 +8,52 @@
       "location": "Edo. de México, México",
       "category": "Proyecto de Titulación",
       "description": "Resignificar el mercado público como espacio de encuentro, comercio y comunidad.",
-      "longDescription": "Un complejo de mercado de uso mixto que resignifica el concepto de mercado público tradicional. El proyecto integra comercio, gastronomía y espacio público en un volumen permeable que privilegia la ventilación e iluminación natural, apostando por materiales locales y estrategias pasivas de climatización.",
+      "longDescription": "Un complejo de mercado de uso mixto que resignifica el mercado público tradicional. Integra comercio, gastronomía y espacio público en un volumen permeable que privilegia la ventilación e iluminación natural, apostando por materiales locales y estrategias pasivas de climatización.",
       "area": "15,000 m²",
       "team": ["Jostin Guzmán"],
       "hero": {
-        "image": "/images/projects/villa-gpe/thumbnails/hero.png",
-        "parallaxLayers": {
-          "far": "/images/projects/villa-gpe/bg-layer-0.png",
-          "mid": "/images/projects/villa-gpe/bg-layer-1.png",
-          "close": "/images/projects/villa-gpe/bg-layer-2.png"
-        },
-        "moodBoard": "/images/projects/villa-gpe/poi-mood-board.jpg"
+        "image": "/images/projects/villa-gpe/thumb.jpg",
+        "scene": "/images/projects/villa-gpe/scene.jpg",
+        "moodBoard": "/images/projects/villa-gpe/moodboard.jpg"
       },
       "poi": [
         {
-          "id": "material-concreto",
-          "title": "Fachadas de concreto",
-          "description": "Concreto texturizado que genera juego de sombras a lo largo del día.",
-          "position": { "x": 30, "y": 42 },
+          "id": "concepto-bioclimatico",
+          "title": "Diseño bioclimático",
+          "description": "Orientación, asoleamiento y vientos guían el partido arquitectónico.",
+          "position": { "x": 66, "y": 30 },
+          "type": "concept",
+          "details": {
+            "heading": "Estrategia bioclimática",
+            "body": "El estudio de asoleamiento, vientos dominantes y flujos urbanos define la orientación y la permeabilidad del volumen, reduciendo la carga térmica y aprovechando la ventilación cruzada para el confort de las zonas de comercio."
+          },
+          "moodBoardItems": ["asoleamiento", "ventilación", "orientación"],
+          "radius": 46,
+          "glowIntensity": 1.4
+        },
+        {
+          "id": "material-fachada",
+          "title": "Fachada de concreto y ladrillo",
+          "description": "Materiales locales que envejecen bien y aportan textura.",
+          "position": { "x": 40, "y": 48 },
           "type": "material",
           "details": {
-            "heading": "Sistema estructural de concreto",
-            "body": "Concreto de agregado local con acabado escobillado que aporta durabilidad y continuidad estética. La textura responde al asoleamiento, proyectando sombras que cambian la lectura de la fachada durante el día."
+            "heading": "Materialidad local",
+            "body": "Concreto aparente y ladrillo de la región conforman una envolvente durable y de bajo mantenimiento, cuyo relieve genera un juego de sombras que cambia con el recorrido del sol."
           },
-          "moodBoardItems": ["concreto", "textura", "material-local"],
-          "radius": 44,
+          "moodBoardItems": ["concreto", "ladrillo", "acero"],
+          "radius": 42,
           "glowIntensity": 1.2
         },
         {
-          "id": "concepto-tragaluz",
-          "title": "Estrategia de tragaluces",
-          "description": "Ventilación natural que reduce el consumo energético.",
-          "position": { "x": 68, "y": 26 },
-          "type": "concept",
-          "details": {
-            "heading": "Control climático pasivo",
-            "body": "El atrio central con tragaluces operables asegura flujo de aire e iluminación natural, disminuyendo la dependencia de sistemas mecánicos y creando un microclima confortable en las zonas de comercio."
-          },
-          "moodBoardItems": ["luz-natural", "ventilacion"],
-          "radius": 50,
-          "glowIntensity": 1.5
-        },
-        {
           "id": "detalle-plaza",
-          "title": "Plaza de acceso",
-          "description": "Umbral público que conecta calle y mercado.",
-          "position": { "x": 48, "y": 70 },
+          "title": "Plaza pública",
+          "description": "Umbral urbano que conecta la calle con el mercado.",
+          "position": { "x": 26, "y": 72 },
           "type": "detail",
           "details": {
             "heading": "Transición calle–mercado",
-            "body": "La plaza de acceso funciona como umbral urbano: un espacio de estancia sombreado que absorbe el flujo peatonal y lo conduce hacia el interior, activando el borde comercial de la manzana."
+            "body": "La plaza de acceso funciona como umbral: un espacio de estancia sombreado que absorbe el flujo peatonal y lo conduce al interior, activando el borde comercial de la manzana."
           },
           "radius": 40,
           "glowIntensity": 1.0
@@ -74,16 +70,12 @@
       "category": "Expo Universitaria",
       "award": "1º lugar",
       "description": "Espacio comunitario de convivencia que celebra la cocina y la cultura local.",
-      "longDescription": "Un comedor comunitario flexible diseñado para albergar eventos culturales y la vida cotidiana del barrio. La propuesta prioriza la madera local y una cubierta ligera que filtra la luz, generando un ambiente cálido que invita a la reunión y al intercambio.",
+      "longDescription": "Un comedor comunitario flexible diseñado para albergar eventos culturales y la vida cotidiana del barrio. Prioriza la madera local y una cubierta ligera que filtra la luz, generando un ambiente cálido que invita a la reunión.",
       "area": "2,500 m²",
       "team": ["Jostin Guzmán"],
       "hero": {
         "image": "/images/projects/comedor/thumbnails/hero.png",
-        "parallaxLayers": {
-          "far": "/images/projects/comedor/bg-layer-0.png",
-          "mid": "/images/projects/comedor/bg-layer-1.png",
-          "close": "/images/projects/comedor/bg-layer-2.png"
-        },
+        "scene": "/images/projects/comedor/bg-layer-2.png",
         "moodBoard": "/images/projects/comedor/poi-mood-board.jpg"
       },
       "poi": [
@@ -95,9 +87,9 @@
           "type": "structural",
           "details": {
             "heading": "Diseño en madera sostenible",
-            "body": "Madera de origen local dispuesta en una celosía paramétrica que reduce el asoleamiento directo y proyecta patrones de luz sobre el comedor, integrando estructura y atmósfera en un solo gesto."
+            "body": "Madera de origen local dispuesta en una celosía paramétrica que reduce el asoleamiento directo y proyecta patrones de luz sobre el comedor, integrando estructura y atmósfera."
           },
-          "moodBoardItems": ["madera", "celosia", "luz-filtrada"],
+          "moodBoardItems": ["madera", "celosía", "luz-filtrada"],
           "radius": 46,
           "glowIntensity": 1.3
         },
@@ -109,7 +101,7 @@
           "type": "concept",
           "details": {
             "heading": "Espacio de convivencia",
-            "body": "La gran mesa comunitaria organiza el espacio y define su vocación: un lugar de encuentro donde la comida articula la vida del barrio. El mobiliario flexible permite reconfigurar la sala para talleres y eventos."
+            "body": "La gran mesa comunitaria organiza el espacio y define su vocación: un lugar de encuentro donde la comida articula la vida del barrio."
           },
           "moodBoardItems": ["comunidad", "mobiliario"],
           "radius": 42,

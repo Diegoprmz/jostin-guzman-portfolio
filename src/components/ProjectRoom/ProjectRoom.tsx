@@ -14,7 +14,7 @@ export function ProjectRoom({ project }: { project: Project }) {
 
   return (
     <main className="relative h-screen w-full overflow-hidden bg-background">
-      <ParallaxScene layers={project.hero.parallaxLayers}>
+      <ParallaxScene scene={project.hero.scene}>
         {project.poi.map((poi) => (
           <PoiDroplet
             key={poi.id}
@@ -66,7 +66,7 @@ export function ProjectRoom({ project }: { project: Project }) {
               </Link>
             )}
           </nav>
-          <LogoMark className="h-7 w-7" stroke="#f0ece2" accent="#3b6fe0" />
+          <LogoMark className="h-7 w-7" />
         </div>
       </header>
 
