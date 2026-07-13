@@ -6,7 +6,7 @@ import type { Project } from "@/types/project";
 import { LogoMark } from "@/components/common/LogoMark";
 import { ParallaxScene } from "./ParallaxScene";
 import { PoiDroplet } from "./PoiDroplet";
-import { InfoDrawer } from "./InfoDrawer";
+import { InfoCard } from "./InfoCard";
 
 export function ProjectRoom({ project }: { project: Project }) {
   const [activeId, setActiveId] = useState<string | null>(null);
@@ -27,12 +27,12 @@ export function ProjectRoom({ project }: { project: Project }) {
         ))}
       </ParallaxScene>
 
-      {/* legibility gradients */}
+      {/* light legibility wash (info now lives in its own glass card) */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "linear-gradient(to top, rgba(10,10,12,0.80), transparent 45%), linear-gradient(to right, rgba(10,10,12,0.6), transparent 35%)",
+            "linear-gradient(to top, rgba(10,10,12,0.55), transparent 40%)",
         }}
       />
 
@@ -70,28 +70,34 @@ export function ProjectRoom({ project }: { project: Project }) {
         </div>
       </header>
 
-      {/* title block */}
-      <div className="pointer-events-none absolute bottom-0 left-0 z-20 max-w-xl p-6 sm:p-10">
-        <span className="font-mono text-xs uppercase tracking-[0.3em] text-accent">
-          {project.category}
-          {project.award ? ` · ${project.award}` : ""}
-        </span>
-        <h1 className="mt-3 text-4xl font-light tracking-tight text-foreground sm:text-5xl">
-          {project.title}
-        </h1>
-        <p className="mt-2 font-mono text-xs tracking-wide text-muted">
-          {project.location} · {project.year}
-          {project.area ? ` · ${project.area}` : ""}
-        </p>
-        <p className="mt-4 hidden max-w-md text-sm leading-relaxed text-muted sm:block">
-          {project.description}
-        </p>
-        <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.25em] text-poi/80">
-          ◇ {project.poi.length} puntos de interés · toca para explorar
-        </p>
+      {/* title — compact glass card, bottom-left */}
+      <div className="pointer-events-none absolute bottom-6 left-6 z-20 sm:bottom-8 sm:left-8">
+        <div
+          className="max-w-xs rounded-card border border-white/10 p-5 sm:max-w-sm sm:p-6"
+          style={{
+            backdropFilter: "blur(20px) saturate(1.1)",
+            WebkitBackdropFilter: "blur(20px) saturate(1.1)",
+            background: "rgba(10,10,12,0.35)",
+          }}
+        >
+          <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-accent">
+            {project.category}
+            {project.award ? ` · ${project.award}` : ""}
+          </span>
+          <h1 className="mt-2 text-3xl font-light tracking-tight text-foreground sm:text-4xl">
+            {project.title}
+          </h1>
+          <p className="mt-2 font-mono text-xs tracking-wide text-muted">
+            {project.location} · {project.year}
+            {project.area ? ` · ${project.area}` : ""}
+          </p>
+          <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.25em] text-poi/80">
+            ◇ {project.poi.length} puntos · toca para explorar
+          </p>
+        </div>
       </div>
 
-      <InfoDrawer
+      <InfoCard
         poi={active}
         moodBoard={project.hero.moodBoard}
         onClose={() => setActiveId(null)}
