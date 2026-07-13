@@ -41,8 +41,8 @@ export function ParallaxBackdrop() {
     const loop = () => {
       cx += (tx - cx) * 0.05;
       cy += (ty - cy) * 0.05;
-      set(photoRef.current, 24);
-      set(midRef.current, 52);
+      set(photoRef.current, 10);
+      set(midRef.current, 22);
       raf = requestAnimationFrame(loop);
     };
 
@@ -66,10 +66,10 @@ export function ParallaxBackdrop() {
           alt=""
           fill
           sizes="100vw"
-          className="object-cover opacity-50"
+          className="object-cover opacity-40"
           priority
         />
-        <div className="absolute inset-0 bg-background/55" />
+        <div className="absolute inset-0 bg-background/62" />
       </div>
 
       {/* mid: soft depth blobs + noise */}
