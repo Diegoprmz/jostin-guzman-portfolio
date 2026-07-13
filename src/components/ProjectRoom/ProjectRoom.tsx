@@ -70,8 +70,8 @@ export function ProjectRoom({ project }: { project: Project }) {
         </div>
       </header>
 
-      {/* title — compact glass card, bottom-left */}
-      <div className="pointer-events-none absolute bottom-6 left-6 z-20 sm:bottom-8 sm:left-8">
+      {/* title — compact glass card, top-left (below header) */}
+      <div className="pointer-events-none absolute top-20 left-6 z-20 sm:top-24 sm:left-8">
         <div
           className="max-w-xs rounded-card border border-white/10 p-5 sm:max-w-sm sm:p-6"
           style={{
@@ -98,6 +98,7 @@ export function ProjectRoom({ project }: { project: Project }) {
       </div>
 
       <InfoCard
+        key={active ? active.id : "closed"}
         poi={active}
         moodBoard={project.hero.moodBoard}
         onClose={() => setActiveId(null)}

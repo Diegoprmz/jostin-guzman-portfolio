@@ -21,7 +21,7 @@
           "id": "concepto-bioclimatico",
           "title": "Diseño bioclimático",
           "description": "Asoleamiento y vientos guían el partido arquitectónico.",
-          "position": { "x": 58, "y": 20 },
+          "position": { "x": 46, "y": 36 },
           "type": "concept",
           "details": {
             "heading": "Estrategia bioclimática",
@@ -39,7 +39,7 @@
           "id": "material-fachada",
           "title": "Materialidad",
           "description": "Concreto, ladrillo y celosía que tamiza la luz.",
-          "position": { "x": 74, "y": 44 },
+          "position": { "x": 60, "y": 50 },
           "type": "material",
           "details": {
             "heading": "Envolvente y materiales",
@@ -54,7 +54,7 @@
           "id": "estructura-programa",
           "title": "Plan integral",
           "description": "Locales, zona de comida, servicios y espacio público.",
-          "position": { "x": 44, "y": 30 },
+          "position": { "x": 27, "y": 52 },
           "type": "structural",
           "details": {
             "heading": "Programa y conjunto",
@@ -69,7 +69,7 @@
           "id": "detalle-interior",
           "title": "Interior y luz cenital",
           "description": "Doble altura y atrio central que lleva luz al interior.",
-          "position": { "x": 62, "y": 60 },
+          "position": { "x": 68, "y": 66 },
           "type": "detail",
           "details": {
             "heading": "Espacio interior",

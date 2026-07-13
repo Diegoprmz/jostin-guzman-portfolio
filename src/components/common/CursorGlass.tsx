@@ -75,8 +75,8 @@ export function CursorGlass() {
       const now = performance.now();
       const prevX = cx;
       const prevY = cy;
-      cx += (tx - cx) * 0.32;
-      cy += (ty - cy) * 0.32;
+      cx += (tx - cx) * 0.55;
+      cy += (ty - cy) * 0.55;
 
       const vx = cx - prevX;
       const vy = cy - prevY;
