@@ -20,43 +20,65 @@
         {
           "id": "concepto-bioclimatico",
           "title": "Diseño bioclimático",
-          "description": "Orientación, asoleamiento y vientos guían el partido arquitectónico.",
-          "position": { "x": 66, "y": 30 },
+          "description": "Asoleamiento y vientos guían el partido arquitectónico.",
+          "position": { "x": 58, "y": 20 },
           "type": "concept",
           "details": {
             "heading": "Estrategia bioclimática",
-            "body": "El estudio de asoleamiento, vientos dominantes y flujos urbanos define la orientación y la permeabilidad del volumen, reduciendo la carga térmica y aprovechando la ventilación cruzada para el confort de las zonas de comercio."
+            "body": "El partido parte de un estudio de asoleamiento y vientos dominantes: la orientación del volumen y sus vanos maximizan la ventilación cruzada y la iluminación natural, reduciendo la carga térmica y la dependencia de sistemas mecánicos en las zonas de comercio y comida.",
+            "images": [
+              "/images/projects/villa-gpe/poi/asoleamiento.jpg",
+              "/images/projects/villa-gpe/poi/vientos.jpg"
+            ]
           },
-          "moodBoardItems": ["asoleamiento", "ventilación", "orientación"],
+          "moodBoardItems": ["asoleamiento", "vientos", "ventilación cruzada"],
           "radius": 46,
           "glowIntensity": 1.4
         },
         {
           "id": "material-fachada",
-          "title": "Fachada de concreto y ladrillo",
-          "description": "Materiales locales que envejecen bien y aportan textura.",
-          "position": { "x": 40, "y": 48 },
+          "title": "Materialidad",
+          "description": "Concreto, ladrillo y celosía que tamiza la luz.",
+          "position": { "x": 74, "y": 44 },
           "type": "material",
           "details": {
-            "heading": "Materialidad local",
-            "body": "Concreto aparente y ladrillo de la región conforman una envolvente durable y de bajo mantenimiento, cuyo relieve genera un juego de sombras que cambia con el recorrido del sol."
+            "heading": "Envolvente y materiales",
+            "body": "La envolvente combina concreto aparente, ladrillo local y una celosía que tamiza la luz. Es de bajo mantenimiento y su relieve genera un juego de sombras que cambia con el sol a lo largo del día.",
+            "images": ["/images/projects/villa-gpe/poi/interior-2.jpg"]
           },
-          "moodBoardItems": ["concreto", "ladrillo", "acero"],
+          "moodBoardItems": ["concreto", "ladrillo", "madera", "acero"],
           "radius": 42,
           "glowIntensity": 1.2
         },
         {
-          "id": "detalle-plaza",
-          "title": "Plaza pública",
-          "description": "Umbral urbano que conecta la calle con el mercado.",
-          "position": { "x": 26, "y": 72 },
+          "id": "estructura-programa",
+          "title": "Plan integral",
+          "description": "Locales, zona de comida, servicios y espacio público.",
+          "position": { "x": 44, "y": 30 },
+          "type": "structural",
+          "details": {
+            "heading": "Programa y conjunto",
+            "body": "El plan integral organiza locales húmedos y secos, zona de comida, servicios y espacio público en un esquema claro y flexible, con circulaciones amplias que priorizan el flujo peatonal y la accesibilidad universal.",
+            "images": ["/images/projects/villa-gpe/poi/planintegral.jpg"]
+          },
+          "moodBoardItems": ["plan maestro", "programa", "circulaciones"],
+          "radius": 44,
+          "glowIntensity": 1.2
+        },
+        {
+          "id": "detalle-interior",
+          "title": "Interior y luz cenital",
+          "description": "Doble altura y atrio central que lleva luz al interior.",
+          "position": { "x": 62, "y": 60 },
           "type": "detail",
           "details": {
-            "heading": "Transición calle–mercado",
-            "body": "La plaza de acceso funciona como umbral: un espacio de estancia sombreado que absorbe el flujo peatonal y lo conduce al interior, activando el borde comercial de la manzana."
+            "heading": "Espacio interior",
+            "body": "Los interiores se resuelven con doble altura y luz cenital: el atrio central distribuye el recorrido y lleva luz natural al corazón del mercado, generando un ambiente amable para comerciantes y visitantes.",
+            "images": ["/images/projects/villa-gpe/poi/interior-1.jpg"]
           },
-          "radius": 40,
-          "glowIntensity": 1.0
+          "moodBoardItems": ["doble altura", "luz cenital", "atrio"],
+          "radius": 42,
+          "glowIntensity": 1.1
         }
       ],
       "nextProject": "comedor"

@@ -21,8 +21,8 @@ export function PoiDroplet({
   const activeGlow: CSSProperties = active
     ? {
         boxShadow:
-          "0 0 46px rgba(96,165,250,0.9), inset 0 0 30px rgba(255,255,255,0.25)",
-        transform: "scale(1.12)",
+          "0 0 0 5px rgba(10,12,20,0.32), 0 0 40px 10px rgba(96,165,250,1), 0 4px 14px rgba(0,0,0,0.5)",
+        transform: "scale(1.18)",
       }
     : {};
 

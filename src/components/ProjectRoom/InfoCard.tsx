@@ -85,14 +85,18 @@ export function InfoCard({
             </div>
           )}
 
-          <div className="relative mt-6 aspect-[16/10] w-full overflow-hidden rounded-btn border border-white/10">
-            <Image
-              src={moodBoard}
-              alt="Mood board"
-              fill
-              sizes="420px"
-              className="object-cover"
-            />
+          <div className="mt-6 flex flex-col gap-3">
+            {(poi.details.images && poi.details.images.length > 0
+              ? poi.details.images
+              : [moodBoard]
+            ).map((src) => (
+              <div
+                key={src}
+                className="relative aspect-[16/10] w-full overflow-hidden rounded-btn border border-white/10"
+              >
+                <Image src={src} alt="" fill sizes="420px" className="object-cover" />
+              </div>
+            ))}
           </div>
         </div>
       </div>
