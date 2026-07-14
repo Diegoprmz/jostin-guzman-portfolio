@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import type { ProjectSummary } from "@/types/project";
@@ -21,6 +23,13 @@ export function ProjectCard({
   return (
     <Link
       href={`/project/${project.slug}`}
+      onClick={() => {
+        try {
+          sessionStorage.setItem("roomTx", "enter");
+        } catch {
+          /* ignore */
+        }
+      }}
       className="group relative flex items-center gap-5 overflow-hidden rounded-card bg-surface/70 p-4 shadow-[6px_6px_20px_rgba(0,0,0,0.55),-5px_-5px_14px_rgba(255,255,255,0.02)] transition-all duration-500 ease-luxury hover:-translate-y-0.5 hover:bg-surface hover:shadow-[0_12px_34px_rgba(0,0,0,0.6),0_0_30px_rgba(212,175,55,0.12)]"
     >
       {/* top sheen glint */}

@@ -20,10 +20,16 @@ const TYPE_LABEL: Record<POIType, string> = {
 export function InfoCard({
   poi,
   moodBoard,
+  index,
+  total,
+  onNavigate,
   onClose,
 }: {
   poi: PointOfInterest | null;
   moodBoard: string;
+  index: number;
+  total: number;
+  onNavigate: (dir: number) => void;
   onClose: () => void;
 }) {
   const [idx, setIdx] = useState(0);
@@ -61,13 +67,20 @@ export function InfoCard({
             <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-poi">
               {TYPE_LABEL[poi.type]}
             </span>
-            <button
-              type="button"
-              onClick={onClose}
-              className="-mt-1 font-mono text-xs uppercase tracking-widest text-muted transition-colors hover:text-foreground"
-            >
-              ✕
-            </button>
+            <div className="flex items-center gap-3">
+              {total > 1 && (
+                <span className="font-mono text-[10px] tracking-widest text-subtle tabular-nums">
+                  {index + 1} / {total}
+                </span>
+              )}
+              <button
+                type="button"
+                onClick={onClose}
+                className="-mt-0.5 font-mono text-xs uppercase tracking-widest text-muted transition-colors hover:text-foreground"
+              >
+                ✕
+              </button>
+            </div>
           </div>
 
           <h2 className="mt-3 text-2xl font-light text-foreground">
@@ -142,6 +155,28 @@ export function InfoCard({
           </div>
         </div>
       </div>
+
+      {/* jump between POIs without closing */}
+      {total > 1 && (
+        <>
+          <button
+            type="button"
+            onClick={() => onNavigate(-1)}
+            aria-label="Punto anterior"
+            className="absolute top-1/2 left-4 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-black/45 text-xl text-foreground backdrop-blur transition-colors hover:bg-black/75 sm:left-8"
+          >
+            ‹
+          </button>
+          <button
+            type="button"
+            onClick={() => onNavigate(1)}
+            aria-label="Punto siguiente"
+            className="absolute top-1/2 right-4 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-black/45 text-xl text-foreground backdrop-blur transition-colors hover:bg-black/75 sm:right-8"
+          >
+            ›
+          </button>
+        </>
+      )}
 
       {/* lightbox */}
       {zoom && (
