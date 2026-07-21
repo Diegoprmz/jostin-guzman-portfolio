@@ -32,6 +32,7 @@ export function getProjectSummaries(): ProjectSummary[] {
     award: p.award,
     description: p.description,
     image: p.hero.image,
+    scene: p.hero.scene,
   }));
 }
 

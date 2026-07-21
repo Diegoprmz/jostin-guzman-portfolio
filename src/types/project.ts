@@ -40,4 +40,6 @@ export interface ProjectSummary {
   award?: string;
   description: string;
   image: string;
+  /** Room render — cards preload this on hover so entering feels instant. */
+  scene: string;
 }

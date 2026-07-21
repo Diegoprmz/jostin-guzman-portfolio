@@ -23,6 +23,12 @@ export function ProjectCard({
   return (
     <Link
       href={`/project/${project.slug}`}
+      onMouseEnter={() => {
+        // warm the room render so entering doesn't stall on the download
+        const w = window.devicePixelRatio > 1.5 ? 2048 : 1920;
+        const img = new window.Image();
+        img.src = `/_next/image?url=${encodeURIComponent(project.scene)}&w=${w}&q=75`;
+      }}
       onClick={() => {
         try {
           sessionStorage.setItem("roomTx", "enter");

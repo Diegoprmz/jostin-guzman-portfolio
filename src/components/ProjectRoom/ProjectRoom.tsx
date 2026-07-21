@@ -1,8 +1,15 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Link from "next/link";
 import gsap from "gsap";
+
+/**
+ * Run the entrance before the browser paints, so the room never flashes its
+ * final state and then jumps back to the start (that's what read as "paused").
+ */
+const useIsoLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
 import type { Project } from "@/types/project";
 import { LogoMark } from "@/components/common/LogoMark";
 import { ParallaxScene } from "./ParallaxScene";
@@ -24,8 +31,8 @@ export function ProjectRoom({ project }: { project: Project }) {
   const active = activeIndex >= 0 ? project.poi[activeIndex] : null;
   const rootRef = useRef<HTMLElement>(null);
 
-  // Entrance transition based on how we got here.
-  useEffect(() => {
+  // Entrance transition based on how we got here (runs before first paint).
+  useIsoLayoutEffect(() => {
     const el = rootRef.current;
     if (!el) return;
     const reduced = window.matchMedia(
@@ -40,29 +47,31 @@ export function ProjectRoom({ project }: { project: Project }) {
     }
     if (reduced) return;
 
+    // No blur: animating a full-screen filter is what made it stutter.
     if (kind === "enter") {
-      // walk into the room: dolly forward out of the card
+      // walk into the room: dolly forward
       gsap.from(el, {
-        scale: 1.16,
+        scale: 1.14,
         opacity: 0,
-        filter: "blur(10px)",
-        duration: 0.85,
-        ease: "power2.out",
+        duration: 0.65,
+        ease: "expo.out",
+        force3D: true,
       });
     } else if (kind === "next" || kind === "prev") {
       // polyhedric wall-turn between rooms
       const dir = kind === "next" ? 1 : -1;
       gsap.from(el, {
-        rotationY: 24 * dir,
-        xPercent: 42 * dir,
-        transformPerspective: 1400,
+        rotationY: 26 * dir,
+        xPercent: 38 * dir,
+        transformPerspective: 1200,
         transformOrigin: "center center",
         opacity: 0,
-        duration: 0.75,
-        ease: "power3.out",
+        duration: 0.6,
+        ease: "expo.out",
+        force3D: true,
       });
     } else {
-      gsap.from(el, { opacity: 0, duration: 0.5, ease: "power1.out" });
+      gsap.from(el, { opacity: 0, duration: 0.35, ease: "power1.out" });
     }
   }, []);
 
