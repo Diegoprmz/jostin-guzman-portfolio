@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, type ReactNode } from "react";
+import { subscribeTilt } from "@/lib/tilt";
 
 /**
  * Single-render scene with mouse camera parallax and a subtle push-in "zoom
@@ -38,10 +39,6 @@ export function ParallaxScene({
     let sc = 1.12;
     let raf = 0;
 
-    const onMove = (e: MouseEvent) => {
-      tx = e.clientX / window.innerWidth - 0.5;
-      ty = e.clientY / window.innerHeight - 0.5;
-    };
     const apply = () => {
       const t = `translate(${(cx * -26).toFixed(2)}px, ${(cy * -26).toFixed(2)}px) scale(${sc.toFixed(4)})`;
       if (sceneRef.current) sceneRef.current.style.transform = t;
@@ -57,11 +54,17 @@ export function ParallaxScene({
       raf = requestAnimationFrame(loop);
     };
 
-    if (!reduced) window.addEventListener("mousemove", onMove);
+    let unsub = () => {};
+    if (!reduced) {
+      unsub = subscribeTilt((nx, ny) => {
+        tx = nx;
+        ty = ny;
+      });
+    }
     loop();
     return () => {
       cancelAnimationFrame(raf);
-      window.removeEventListener("mousemove", onMove);
+      unsub();
     };
   }, []);
 

@@ -58,16 +58,18 @@ export function ProjectRoom({ project }: { project: Project }) {
         force3D: true,
       });
     } else if (kind === "next" || kind === "prev") {
-      // polyhedric wall-turn between rooms
-      const dir = kind === "next" ? 1 : -1;
+      // Inside-a-cube camera turn: the incoming wall is HINGED at the screen
+      // edge (transform-origin) and swings from edge-on to facing you. No
+      // sideways translation — that's what made it look like it travelled the
+      // wrong way and then straightened out.
+      const next = kind === "next";
       gsap.from(el, {
-        rotationY: 26 * dir,
-        xPercent: 38 * dir,
-        transformPerspective: 1200,
-        transformOrigin: "center center",
-        opacity: 0,
-        duration: 0.6,
-        ease: "expo.out",
+        rotationY: next ? -78 : 78,
+        transformOrigin: next ? "right center" : "left center",
+        transformPerspective: 900,
+        opacity: 0.35,
+        duration: 0.7,
+        ease: "power3.out",
         force3D: true,
       });
     } else {

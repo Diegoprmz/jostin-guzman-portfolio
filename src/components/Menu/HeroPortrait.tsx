@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
+import { subscribeTilt } from "@/lib/tilt";
 
 /**
  * Black & white studio portrait with mouse parallax depth: the portrait drifts
@@ -24,10 +25,6 @@ export function HeroPortrait() {
     let cy = 0;
     let raf = 0;
 
-    const onMove = (e: MouseEvent) => {
-      tx = e.clientX / window.innerWidth - 0.5;
-      ty = e.clientY / window.innerHeight - 0.5;
-    };
     const loop = () => {
       cx += (tx - cx) * 0.08;
       cy += (ty - cy) * 0.08;
@@ -40,11 +37,14 @@ export function HeroPortrait() {
       raf = requestAnimationFrame(loop);
     };
 
-    window.addEventListener("mousemove", onMove);
+    const unsub = subscribeTilt((nx, ny) => {
+      tx = nx;
+      ty = ny;
+    });
     loop();
     return () => {
       cancelAnimationFrame(raf);
-      window.removeEventListener("mousemove", onMove);
+      unsub();
     };
   }, []);
 

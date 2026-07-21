@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
+import { subscribeTilt } from "@/lib/tilt";
 
 const NOISE =
   "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")";
@@ -31,10 +32,6 @@ export function ParallaxBackdrop() {
     let cy = 0;
     let raf = 0;
 
-    const onMove = (e: MouseEvent) => {
-      tx = e.clientX / window.innerWidth - 0.5;
-      ty = e.clientY / window.innerHeight - 0.5;
-    };
     const set = (el: HTMLDivElement | null, s: number) => {
       if (el) el.style.transform = `translate(${cx * -s}px, ${cy * -s}px) scale(1.08)`;
     };
@@ -46,11 +43,14 @@ export function ParallaxBackdrop() {
       raf = requestAnimationFrame(loop);
     };
 
-    window.addEventListener("mousemove", onMove);
+    const unsub = subscribeTilt((nx, ny) => {
+      tx = nx;
+      ty = ny;
+    });
     loop();
     return () => {
       cancelAnimationFrame(raf);
-      window.removeEventListener("mousemove", onMove);
+      unsub();
     };
   }, []);
 
