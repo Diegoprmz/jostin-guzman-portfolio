@@ -43,9 +43,11 @@ function onOrientation(e: DeviceOrientationEvent) {
     baseGamma = gamma;
     return;
   }
-  // ~35° of tilt covers the full parallax range
-  x = clamp((gamma - baseGamma) / 35, -1, 1) * 0.5;
-  y = clamp((beta - baseBeta) / 35, -1, 1) * 0.5;
+  // Mobile gets a punchier response than the mouse: a smaller tilt window
+  // (~22°) and a gain above the mouse's ±0.5 range, so a light turn of the
+  // wrist visibly moves the layers.
+  x = clamp((gamma - baseGamma) / 22, -1, 1) * 0.85;
+  y = clamp((beta - baseBeta) / 22, -1, 1) * 0.85;
   emit();
 }
 

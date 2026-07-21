@@ -151,28 +151,33 @@ export function ProjectRoom({ project }: { project: Project }) {
         </div>
       </header>
 
-      {/* title — compact glass card, top-left (below header) */}
-      <div className="pointer-events-none absolute top-20 left-6 z-20 sm:top-24 sm:left-8">
+      {/* title — slim bar on phones, full glass card on desktop.
+          Fades out while a POI card is open so it never covers the points. */}
+      <div
+        className={`pointer-events-none absolute top-16 right-4 left-4 z-20 transition-opacity duration-300 sm:top-24 sm:right-auto sm:left-8 ${
+          active ? "opacity-0" : "opacity-100"
+        }`}
+      >
         <div
-          className="max-w-xs rounded-card border border-white/10 p-5 sm:max-w-sm sm:p-6"
+          className="rounded-card border border-white/10 px-4 py-3 sm:max-w-sm sm:p-6"
           style={{
             backdropFilter: "blur(20px) saturate(1.1)",
             WebkitBackdropFilter: "blur(20px) saturate(1.1)",
             background: "rgba(10,10,12,0.35)",
           }}
         >
-          <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-accent">
+          <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-accent sm:text-[11px] sm:tracking-[0.3em]">
             {project.category}
             {project.award ? ` · ${project.award}` : ""}
           </span>
-          <h1 className="mt-2 text-3xl font-light tracking-tight text-foreground sm:text-4xl">
+          <h1 className="mt-0.5 truncate text-lg font-light tracking-tight text-foreground sm:mt-2 sm:text-4xl sm:whitespace-normal">
             {project.title}
           </h1>
-          <p className="mt-2 font-mono text-xs tracking-wide text-muted">
+          <p className="mt-2 hidden font-mono text-xs tracking-wide text-muted sm:block">
             {project.location} · {project.year}
             {project.area ? ` · ${project.area}` : ""}
           </p>
-          <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.25em] text-poi/80">
+          <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.22em] text-poi/80 sm:mt-4 sm:text-[10px] sm:tracking-[0.25em]">
             ◇ {project.poi.length} puntos · toca para explorar
           </p>
         </div>
