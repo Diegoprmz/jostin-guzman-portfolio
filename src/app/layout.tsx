@@ -31,9 +31,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    // overflow-x-hidden: the room turn briefly scales the page past 100vw,
+    // which would otherwise flash a horizontal scrollbar mid-animation.
     <html
       lang="es"
-      className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
+      className={`${inter.variable} ${jetbrainsMono.variable} h-full overflow-x-hidden antialiased`}
     >
       <body className="min-h-full bg-background font-sans text-foreground">
         {children}

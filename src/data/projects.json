@@ -92,45 +92,284 @@
       "category": "Expo Universitaria",
       "award": "1º lugar",
       "description": "Espacio comunitario de convivencia que celebra la cocina y la cultura local.",
-      "longDescription": "Un comedor comunitario flexible diseñado para albergar eventos culturales y la vida cotidiana del barrio. Prioriza la madera local y una cubierta ligera que filtra la luz, generando un ambiente cálido que invita a la reunión.",
+      "longDescription": "Un comedor comunitario flexible diseñado para albergar eventos culturales y la vida cotidiana del barrio. Prioriza materiales locales y una cubierta que filtra la luz, generando un ambiente cálido que invita a la reunión.",
       "area": "2,500 m²",
       "team": ["Jostin Guzmán"],
       "hero": {
-        "image": "/images/projects/comedor/thumbnails/hero.png",
-        "scene": "/images/projects/comedor/bg-layer-2.png",
-        "moodBoard": "/images/projects/comedor/poi-mood-board.jpg"
+        "image": "/images/projects/comedor/thumb.jpg",
+        "scene": "/images/projects/comedor/scene.jpg",
+        "moodBoard": "/images/projects/comedor/moodboard.jpg"
       },
       "poi": [
         {
-          "id": "estructura-celosia",
-          "title": "Celosía de madera",
-          "description": "Elemento estructural y estético que tamiza la luz directa.",
-          "position": { "x": 46, "y": 36 },
-          "type": "structural",
+          "id": "concepto-comunidad",
+          "title": "Espacio de convivencia",
+          "description": "El comedor como corazón social del barrio.",
+          "position": { "x": 45, "y": 62 },
+          "type": "concept",
           "details": {
-            "heading": "Diseño en madera sostenible",
-            "body": "Madera de origen local dispuesta en una celosía paramétrica que reduce el asoleamiento directo y proyecta patrones de luz sobre el comedor, integrando estructura y atmósfera."
+            "heading": "Arquitectura que reúne",
+            "body": "El proyecto ordena el programa alrededor de un gran espacio de mesas compartidas: la comida como articulador de la vida del barrio. El mobiliario flexible permite reconfigurar la sala para talleres, asambleas y eventos culturales.",
+            "images": ["/images/projects/comedor/poi/exterior.jpg"]
           },
-          "moodBoardItems": ["madera", "celosía", "luz-filtrada"],
-          "radius": 46,
+          "moodBoardItems": ["comunidad", "mobiliario flexible", "cultura local"],
+          "radius": 44,
           "glowIntensity": 1.3
         },
         {
-          "id": "concepto-comunidad",
-          "title": "Mesa comunitaria",
-          "description": "Corazón social del proyecto.",
-          "position": { "x": 62, "y": 58 },
-          "type": "concept",
+          "id": "material-envolvente",
+          "title": "Ladrillo y madera",
+          "description": "Materiales locales, bajo mantenimiento y calidez.",
+          "position": { "x": 66, "y": 46 },
+          "type": "material",
           "details": {
-            "heading": "Espacio de convivencia",
-            "body": "La gran mesa comunitaria organiza el espacio y define su vocación: un lugar de encuentro donde la comida articula la vida del barrio."
+            "heading": "Materialidad local",
+            "body": "La envolvente de ladrillo de la región aporta inercia térmica y envejece bien; la madera de la cubierta y las carpinterías suman calidez al interior. Ambos materiales son de origen cercano y de mantenimiento sencillo para la comunidad.",
+            "images": ["/images/projects/comedor/poi/atardecer.jpg"]
           },
-          "moodBoardItems": ["comunidad", "mobiliario"],
+          "moodBoardItems": ["ladrillo", "madera", "material local"],
+          "radius": 42,
+          "glowIntensity": 1.2
+        },
+        {
+          "id": "estructura-cubierta",
+          "title": "Cubierta y luz filtrada",
+          "description": "La cubierta tamiza el asoleamiento directo.",
+          "position": { "x": 78, "y": 66 },
+          "type": "structural",
+          "details": {
+            "heading": "Cubierta ligera",
+            "body": "Una cubierta ligera con celosía reduce el asoleamiento directo y proyecta patrones de luz sobre el comedor, permitiendo además la salida del aire caliente. Estructura y atmósfera se resuelven en un mismo gesto.",
+            "images": ["/images/projects/comedor/poi/exterior.jpg"]
+          },
+          "moodBoardItems": ["celosía", "luz filtrada", "ventilación"],
           "radius": 42,
           "glowIntensity": 1.1
         }
       ],
-      "prevProject": "villa-gpe"
+      "prevProject": "villa-gpe",
+      "nextProject": "deptos-cafetales"
+    },
+    {
+      "id": "deptos-cafetales",
+      "slug": "deptos-cafetales",
+      "title": "Departamentos Cafetales",
+      "year": 2021,
+      "location": "Ecatepec, Edo. de México",
+      "category": "Proyecto en desarrollo",
+      "description": "Vivienda multifamiliar que integra vegetación en la fachada y áreas comunes.",
+      "longDescription": "Conjunto de departamentos que busca densificar sin perder calidad de vida: la vegetación se incorpora a la fachada y a las áreas comunes como estrategia de confort y de identidad, con una volumetría escalonada que favorece la iluminación natural de cada unidad.",
+      "team": ["Jostin Guzmán"],
+      "hero": {
+        "image": "/images/projects/deptos-cafetales/thumb.jpg",
+        "scene": "/images/projects/deptos-cafetales/scene.jpg",
+        "moodBoard": "/images/projects/deptos-cafetales/moodboard.jpg"
+      },
+      "poi": [
+        {
+          "id": "fachada-vegetacion",
+          "title": "Fachada y vegetación",
+          "description": "La vegetación como piel y como confort térmico.",
+          "position": { "x": 55, "y": 44 },
+          "type": "material",
+          "details": {
+            "heading": "Envolvente viva",
+            "body": "La vegetación se integra a la fachada y a las terrazas: además de dar identidad al conjunto, funciona como filtro solar y mejora el confort térmico de las unidades sin recurrir a sistemas mecánicos.",
+            "images": ["/images/projects/deptos-cafetales/poi/plantas.jpg"]
+          },
+          "moodBoardItems": ["vegetación", "concreto", "celosía"],
+          "radius": 44,
+          "glowIntensity": 1.3
+        },
+        {
+          "id": "programa-unidades",
+          "title": "Programa y unidades",
+          "description": "Distribución de departamentos y áreas comunes.",
+          "position": { "x": 72, "y": 66 },
+          "type": "structural",
+          "details": {
+            "heading": "Distribución del conjunto",
+            "body": "Las plantas resuelven unidades eficientes con doble orientación donde es posible, circulaciones cortas y áreas comunes que concentran la vida colectiva del edificio.",
+            "images": ["/images/projects/deptos-cafetales/poi/plantas.jpg"]
+          },
+          "moodBoardItems": ["plantas", "unidades", "áreas comunes"],
+          "radius": 42,
+          "glowIntensity": 1.1
+        }
+      ],
+      "prevProject": "comedor",
+      "nextProject": "centro-artesanal"
+    },
+    {
+      "id": "centro-artesanal",
+      "slug": "centro-artesanal",
+      "title": "Centro Artesanal y Cafetería",
+      "year": 2020,
+      "location": "Aguascalientes, México",
+      "category": "Expo Universitaria",
+      "award": "2º lugar",
+      "description": "Espacio para el oficio artesanal, la exhibición y el encuentro.",
+      "longDescription": "Un centro que aloja talleres artesanales, exhibición y cafetería en un mismo recorrido. La arquitectura se plantea como soporte del oficio: espacios servidos por luz natural, materiales nobles y una circulación que invita a recorrer del taller a la tienda y de ahí al café.",
+      "team": ["Jostin Guzmán"],
+      "hero": {
+        "image": "/images/projects/centro-artesanal/thumb.jpg",
+        "scene": "/images/projects/centro-artesanal/scene.jpg",
+        "moodBoard": "/images/projects/centro-artesanal/moodboard.jpg"
+      },
+      "poi": [
+        {
+          "id": "concepto-recorrido",
+          "title": "Recorrido del oficio",
+          "description": "Del taller a la exhibición y al café.",
+          "position": { "x": 72, "y": 38 },
+          "type": "concept",
+          "details": {
+            "heading": "Un solo recorrido",
+            "body": "El proyecto encadena taller, exhibición y cafetería en una secuencia continua: el visitante ve el oficio antes de comprar la pieza. La circulación funciona como hilo narrativo del edificio.",
+            "images": ["/images/projects/centro-artesanal/poi/plantas.jpg"]
+          },
+          "moodBoardItems": ["talleres", "exhibición", "cafetería"],
+          "radius": 44,
+          "glowIntensity": 1.3
+        },
+        {
+          "id": "material-fachada-ca",
+          "title": "Fachadas y materialidad",
+          "description": "Concreto y madera con vanos que enmarcan el paisaje.",
+          "position": { "x": 52, "y": 52 },
+          "type": "material",
+          "details": {
+            "heading": "Envolvente y luz",
+            "body": "Las fachadas combinan concreto aparente con carpinterías de madera; los vanos se dimensionan para introducir luz difusa a los talleres, que requieren iluminación estable para el trabajo artesanal.",
+            "images": ["/images/projects/centro-artesanal/poi/fachadas.jpg"]
+          },
+          "moodBoardItems": ["concreto", "madera", "luz difusa"],
+          "radius": 42,
+          "glowIntensity": 1.2
+        },
+        {
+          "id": "estructura-plantas-ca",
+          "title": "Plantas arquitectónicas",
+          "description": "Organización de talleres, tienda y servicios.",
+          "position": { "x": 38, "y": 66 },
+          "type": "structural",
+          "details": {
+            "heading": "Organización en planta",
+            "body": "Las plantas separan las zonas ruidosas del taller de las áreas de estancia, con servicios agrupados y accesos diferenciados para el público y para la carga de materiales.",
+            "images": ["/images/projects/centro-artesanal/poi/plantas.jpg"]
+          },
+          "moodBoardItems": ["plantas", "zonificación", "accesos"],
+          "radius": 42,
+          "glowIntensity": 1.1
+        }
+      ],
+      "prevProject": "deptos-cafetales",
+      "nextProject": "casa-itz"
+    },
+    {
+      "id": "casa-itz",
+      "slug": "casa-itz",
+      "title": "Remodelación Casa ITZ",
+      "year": 2024,
+      "location": "Iztapalapa, CDMX",
+      "category": "Proyecto en desarrollo",
+      "description": "Remodelación interior que reordena la casa y gana luz.",
+      "longDescription": "Intervención de una vivienda existente: se reordena la planta para liberar el área social, se recuperan visuales y se renuevan acabados. El objetivo es ganar amplitud y luz natural sin modificar la estructura principal.",
+      "team": ["Jostin Guzmán"],
+      "hero": {
+        "image": "/images/projects/casa-itz/thumb.jpg",
+        "scene": "/images/projects/casa-itz/scene.jpg",
+        "moodBoard": "/images/projects/casa-itz/moodboard.jpg"
+      },
+      "poi": [
+        {
+          "id": "interior-social",
+          "title": "Área social",
+          "description": "Sala y comedor integrados, con acabados cálidos.",
+          "position": { "x": 48, "y": 48 },
+          "type": "detail",
+          "details": {
+            "heading": "Estar renovado",
+            "body": "El área social se integra en un solo espacio continuo: sala, comedor y paso quedan conectados visualmente. Los acabados en madera y textiles cálidos suavizan la lectura del conjunto.",
+            "images": ["/images/projects/casa-itz/poi/sala.jpg"]
+          },
+          "moodBoardItems": ["madera", "textiles", "iluminación cálida"],
+          "radius": 44,
+          "glowIntensity": 1.3
+        },
+        {
+          "id": "antes-despues-itz",
+          "title": "Antes y después",
+          "description": "Comparativa de planta: estado actual vs. propuesta.",
+          "position": { "x": 72, "y": 66 },
+          "type": "concept",
+          "details": {
+            "heading": "Reordenar la planta",
+            "body": "La comparativa muestra el cambio: se eliminan divisiones que fragmentaban el área social y se reubican servicios para liberar el frente iluminado de la casa. La estructura principal se conserva.",
+            "images": [
+              "/images/projects/casa-itz/poi/planta-antes.jpg",
+              "/images/projects/casa-itz/poi/planta-despues.jpg"
+            ]
+          },
+          "moodBoardItems": ["estado actual", "propuesta", "reordenamiento"],
+          "radius": 44,
+          "glowIntensity": 1.2
+        }
+      ],
+      "prevProject": "centro-artesanal",
+      "nextProject": "casa-tc"
+    },
+    {
+      "id": "casa-tc",
+      "slug": "casa-tc",
+      "title": "Remodelación Casa TC",
+      "year": 2024,
+      "location": "Tezoyuca, Edo. de México",
+      "category": "Proyecto en desarrollo",
+      "description": "Nueva imagen para una casa existente: fachada, volumen y accesos.",
+      "longDescription": "Remodelación integral de una vivienda existente. La propuesta reordena la fachada con un lenguaje contemporáneo —volúmenes limpios, celosía y madera— y resuelve el acceso y las alturas para dar presencia a la casa sin rehacerla por completo.",
+      "team": ["Jostin Guzmán"],
+      "hero": {
+        "image": "/images/projects/casa-tc/thumb.jpg",
+        "scene": "/images/projects/casa-tc/scene.jpg",
+        "moodBoard": "/images/projects/casa-tc/moodboard.jpg"
+      },
+      "poi": [
+        {
+          "id": "fachada-propuesta",
+          "title": "Fachada propuesta",
+          "description": "Volúmenes limpios, celosía y madera.",
+          "position": { "x": 52, "y": 48 },
+          "type": "material",
+          "details": {
+            "heading": "Nueva imagen",
+            "body": "La fachada se resuelve con volúmenes limpios, una celosía que aporta privacidad al frente y detalles en madera que dan calidez. La iluminación integrada refuerza el volumen por la noche.",
+            "images": ["/images/projects/casa-tc/poi/fachada-dia.jpg"]
+          },
+          "moodBoardItems": ["celosía", "madera", "iluminación integrada"],
+          "radius": 44,
+          "glowIntensity": 1.3
+        },
+        {
+          "id": "antes-despues-tc",
+          "title": "Antes y después",
+          "description": "La casa original frente a la propuesta.",
+          "position": { "x": 74, "y": 64 },
+          "type": "concept",
+          "details": {
+            "heading": "De la casa original a la propuesta",
+            "body": "El punto de partida es la vivienda existente. La intervención respeta la estructura y reescribe la fachada, los accesos y las alturas para transformar por completo la percepción de la casa.",
+            "images": [
+              "/images/projects/casa-tc/poi/antes-foto.jpg",
+              "/images/projects/casa-tc/poi/planta-despues.jpg"
+            ]
+          },
+          "moodBoardItems": ["estado actual", "propuesta", "fachada"],
+          "radius": 44,
+          "glowIntensity": 1.2
+        }
+      ],
+      "prevProject": "casa-itz"
     }
   ]
 }

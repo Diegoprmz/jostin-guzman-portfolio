@@ -62,14 +62,21 @@ export function ProjectRoom({ project }: { project: Project }) {
       // edge (transform-origin) and swings from edge-on to facing you. No
       // sideways translation — that's what made it look like it travelled the
       // wrong way and then straightened out.
+      //
+      // Why the scale: hinged at x=W, the far edge sits at z = -W·sin0 and the
+      // panel only projects to W·cos0 · d/(d+W·sin0) of the viewport — at 22°
+      // with d=2000 that's ~0.73, i.e. a quarter of the screen would be the
+      // black body showing through. Starting oversized covers it, and reads as
+      // the wall being nearer as it swings in. Opacity stays at 1 for the same
+      // reason: a translucent panel just lets the void back through.
       const next = kind === "next";
       gsap.from(el, {
-        rotationY: next ? -78 : 78,
+        rotationY: next ? -22 : 22,
         transformOrigin: next ? "right center" : "left center",
-        transformPerspective: 900,
-        opacity: 0.35,
-        duration: 0.7,
-        ease: "power3.out",
+        transformPerspective: 2000,
+        scale: 1.45,
+        duration: 0.62,
+        ease: "power2.out",
         force3D: true,
       });
     } else {
