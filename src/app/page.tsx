@@ -37,7 +37,7 @@ export default function Home() {
               para entrar.
             </p>
 
-            <div className="mt-10 flex flex-col gap-4">
+            <div className="mt-8 flex flex-col gap-3">
               {projects.map((project, i) => (
                 <ProjectCard key={project.id} project={project} index={i + 1} />
               ))}
